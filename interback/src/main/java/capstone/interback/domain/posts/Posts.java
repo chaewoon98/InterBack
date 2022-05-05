@@ -1,4 +1,4 @@
-package capstone.interback.domain;
+package capstone.interback.domain.posts;
 
 import lombok.Builder;
 import lombok.Getter;

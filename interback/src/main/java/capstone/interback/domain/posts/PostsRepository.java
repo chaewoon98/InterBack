@@ -1,4 +1,4 @@
-package capstone.interback.domain;
+package capstone.interback.domain.posts;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,8 +1,9 @@
 package capstone.interback.web;
 
-import capstone.interback.domain.posts.Posts;
-import capstone.interback.domain.posts.PostsRepository;
-import capstone.interback.web.dto.PostsSaveRequestDto;
+import capstone.interback.domain.user.User;
+import capstone.interback.domain.user.UserRepository;
+import capstone.interback.web.dto.UserSaveRequestDto;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -20,7 +21,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class PostsApiControllerTest {
+public class UserApiControllerTest {
 
     @LocalServerPort
     private int port;
@@ -29,25 +30,28 @@ public class PostsApiControllerTest {
     private TestRestTemplate restTemplate;
 
     @Autowired
-    private PostsRepository postsRepository;
+    private UserRepository userRepository;
 
     @AfterEach
     public void tearDown() throws Exception{
-        postsRepository.deleteAll();
+        userRepository.deleteAll();
     }
 
     @Test
-    public void Posts_등록된다() throws Exception{
+    public void User_등록된다() throws Exception{
         //given
-        String title = "title";
-        String content = "content";
-        PostsSaveRequestDto requestDto = PostsSaveRequestDto.builder()
-                .title(title)
-                .content(content)
-                .master("master")
+        String user_id = "user_id123";
+        String password = "password123";
+        String name = "name";
+        String email = "email@email.com";
+        UserSaveRequestDto requestDto = UserSaveRequestDto.builder()
+                .user_id(user_id)
+                .password(password)
+                .name(name)
+                .email(email)
                 .build();
 
-        String url = "http://localhost:" + port + "/api/v1/posts";
+        String url = "http://localhost:" + port + "/api/user";
 
         //when
         ResponseEntity<Long> responseEntity = restTemplate.postForEntity(url, requestDto, Long.class);
@@ -56,9 +60,13 @@ public class PostsApiControllerTest {
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseEntity.getBody()).isGreaterThan(0L);
 
-        List<Posts> all = postsRepository.findAll();
-        assertThat(all.get(0).getTitle()).isEqualTo(title);
-        assertThat(all.get(0).getContent()).isEqualTo(content);
+        List<User> all = userRepository.findAll();
+        assertThat(all.get(0).getUser_id()).isEqualTo(user_id);
+        assertThat(all.get(0).getPassword()).isEqualTo(password);
+        assertThat(all.get(0).getName()).isEqualTo(name);
+        assertThat(all.get(0).getEmail()).isEqualTo(email);
+
 
     }
+
 }

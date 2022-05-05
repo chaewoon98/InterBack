@@ -1,6 +1,6 @@
 package capstone.interback.web.dto;
 
-import capstone.interback.domain.Posts;
+import capstone.interback.domain.posts.Posts;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
