@@ -1,4 +1,4 @@
-package capstone.interback.dto;
+package capstone.interback.web.dto;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

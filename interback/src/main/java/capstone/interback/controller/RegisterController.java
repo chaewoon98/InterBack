@@ -1,6 +1,6 @@
 package capstone.interback.controller;
 
-import capstone.interback.dto.UserDTO;
+import capstone.interback.web.dto.UserDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,6 +1,6 @@
 package capstone.interback;
 
-import capstone.interback.dto.UserDTO;
+import capstone.interback.web.dto.UserDTO;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
