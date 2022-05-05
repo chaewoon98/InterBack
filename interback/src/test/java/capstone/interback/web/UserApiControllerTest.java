@@ -3,6 +3,7 @@ package capstone.interback.web;
 import capstone.interback.domain.user.User;
 import capstone.interback.domain.user.UserRepository;
 import capstone.interback.web.dto.UserSaveRequestDto;
+import capstone.interback.web.dto.UserUpdateRequestDto;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
@@ -11,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -65,8 +68,42 @@ public class UserApiControllerTest {
         assertThat(all.get(0).getPassword()).isEqualTo(password);
         assertThat(all.get(0).getName()).isEqualTo(name);
         assertThat(all.get(0).getEmail()).isEqualTo(email);
-
-
     }
 
+    @Test
+    public void User_수정된다() throws Exception{
+        //given
+        User savedUser = userRepository.save(User.builder()
+                .user_id("user_id")
+                .password("password")
+                .name("name")
+                .email("email")
+                .build());
+
+        Long updateId = savedUser.getId();
+        String expectedPassword = "password2";
+        String expectedName = "name2";
+        String expectedEmail = "email2";
+
+        UserUpdateRequestDto requestDto = UserUpdateRequestDto.builder()
+                .password(expectedPassword)
+                .name(expectedName)
+                .email(expectedEmail).build();
+
+        String url = "http://localhost:" + port + "/api/user/"+ updateId;
+
+        HttpEntity<UserUpdateRequestDto> requestEntity = new HttpEntity<>(requestDto);
+
+        //when
+        ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.PUT, requestEntity, Long.class);
+
+        //then
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(responseEntity.getBody()).isGreaterThan(0L);
+
+        List<User> all = userRepository.findAll();
+        assertThat(all.get(0).getPassword()).isEqualTo(expectedPassword);
+        assertThat(all.get(0).getName()).isEqualTo(expectedName);
+        assertThat(all.get(0).getEmail()).isEqualTo(expectedEmail);
+    }
 }
