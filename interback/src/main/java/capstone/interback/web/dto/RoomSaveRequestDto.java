@@ -1,6 +1,6 @@
 package capstone.interback.web.dto;
 
-import capstone.interback.domain.posts.Posts;
+import capstone.interback.domain.room.Room;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,20 +8,20 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-public class PostsSaveRequestDto {
+public class RoomSaveRequestDto {
     private String title;
     private String content;
     private String master;
 
     @Builder
-    public PostsSaveRequestDto(String title, String content, String master){
+    public RoomSaveRequestDto(String title, String content, String master){
         this.title = title;
         this.content = content;
         this.master = master;
     }
 
-    public Posts toEntity(){
-        return Posts.builder()
+    public Room toEntity(){
+        return Room.builder()
                 .title(title)
                 .content(content)
                 .master(master)

@@ -1,4 +1,4 @@
-package capstone.interback.domain.posts;
+package capstone.interback.domain.room;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
@@ -13,14 +13,14 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-public class PostsRepositoryTest {
+public class RoomRepositoryTest {
 
     @Autowired
-    PostsRepository postsRepository;
+    RoomRepository roomRepository;
 
     @AfterEach
     public void cleanup(){
-        postsRepository.deleteAll();
+        roomRepository.deleteAll();
     }
     
     @Test
@@ -29,18 +29,18 @@ public class PostsRepositoryTest {
         String title = "테스트 미팅룸";
         String content = "테스트 미팅룸 콘텐트";
 
-        postsRepository.save(Posts.builder().title(title) //id값 있으면 update, 없으면 insert 쿼리 실행
+        roomRepository.save(Room.builder().title(title) //id값 있으면 update, 없으면 insert 쿼리 실행
                 .content(content)
                 .master("woonie")
                 .build());
         
         //when
-        List<Posts> postsList = postsRepository.findAll(); //posts 테이블 모든 데이터 조회
+        List<Room> roomList = roomRepository.findAll(); //posts 테이블 모든 데이터 조회
         
         //then
-        Posts posts = postsList.get(0);
-        assertThat(posts.getTitle()).isEqualTo(title);
-        assertThat(posts.getContent()).isEqualTo(content);
+        Room room = roomList.get(0);
+        assertThat(room.getTitle()).isEqualTo(title);
+        assertThat(room.getContent()).isEqualTo(content);
         
     }
 }

@@ -1,8 +1,8 @@
 package capstone.interback.web;
 
-import capstone.interback.domain.posts.Posts;
-import capstone.interback.domain.posts.PostsRepository;
-import capstone.interback.web.dto.PostsSaveRequestDto;
+import capstone.interback.domain.room.Room;
+import capstone.interback.domain.room.RoomRepository;
+import capstone.interback.web.dto.RoomSaveRequestDto;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -20,7 +20,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class PostsApiControllerTest {
+public class RoomApiControllerTest {
 
     @LocalServerPort
     private int port;
@@ -29,11 +29,11 @@ public class PostsApiControllerTest {
     private TestRestTemplate restTemplate;
 
     @Autowired
-    private PostsRepository postsRepository;
+    private RoomRepository roomRepository;
 
     @AfterEach
     public void tearDown() throws Exception{
-        postsRepository.deleteAll();
+        roomRepository.deleteAll();
     }
 
     @Test
@@ -41,7 +41,7 @@ public class PostsApiControllerTest {
         //given
         String title = "title";
         String content = "content";
-        PostsSaveRequestDto requestDto = PostsSaveRequestDto.builder()
+        RoomSaveRequestDto requestDto = RoomSaveRequestDto.builder()
                 .title(title)
                 .content(content)
                 .master("master")
@@ -56,7 +56,7 @@ public class PostsApiControllerTest {
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseEntity.getBody()).isGreaterThan(0L);
 
-        List<Posts> all = postsRepository.findAll();
+        List<Room> all = roomRepository.findAll();
         assertThat(all.get(0).getTitle()).isEqualTo(title);
         assertThat(all.get(0).getContent()).isEqualTo(content);
 

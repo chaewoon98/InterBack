@@ -1,4 +1,4 @@
-package capstone.interback.domain.posts;
+package capstone.interback.domain.room;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -9,10 +9,11 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Posts {
+public class Room {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "room_id")
     private Long id;
 
     @Column(length = 500, nullable = false)
@@ -24,7 +25,7 @@ public class Posts {
     private String master;
 
     @Builder
-    public Posts(String title, String content, String master){
+    public Room(String title, String content, String master){
         this.title = title;
         this.content = content;
         this.master = master;
