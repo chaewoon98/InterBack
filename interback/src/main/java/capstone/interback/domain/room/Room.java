@@ -12,8 +12,8 @@ import javax.persistence.*;
 public class Room {
 
     @Id
+    @Column(name = "room_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "room_id")
     private Long id;
 
     @Column(length = 500, nullable = false)

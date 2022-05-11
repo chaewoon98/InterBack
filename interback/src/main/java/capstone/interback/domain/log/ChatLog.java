@@ -24,6 +24,6 @@ public class ChatLog {
     @Column(nullable = false)
     private String log_chat;
 
-    @Column
-    private LocalDateTime log_time;
+//    @Column(nullable = false)
+//    private LocalDateTime log_time;
 }

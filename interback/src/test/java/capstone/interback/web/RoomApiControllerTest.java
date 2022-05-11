@@ -37,7 +37,7 @@ public class RoomApiControllerTest {
     }
 
     @Test
-    public void Posts_등록된다() throws Exception{
+    public void Room_등록된다() throws Exception{
         //given
         String title = "title";
         String content = "content";
@@ -47,7 +47,7 @@ public class RoomApiControllerTest {
                 .master("master")
                 .build();
 
-        String url = "http://localhost:" + port + "/api/v1/posts";
+        String url = "http://localhost:" + port + "/api/v1/room";
 
         //when
         ResponseEntity<Long> responseEntity = restTemplate.postForEntity(url, requestDto, Long.class);

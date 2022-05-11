@@ -2,8 +2,10 @@ package capstone.interback.service.room;
 
 import capstone.interback.domain.room.Room;
 import capstone.interback.domain.room.RoomRepository;
+import capstone.interback.domain.user_and_room.UserAndRoomRepository;
 import capstone.interback.web.dto.RoomResponseDto;
 import capstone.interback.web.dto.RoomSaveRequestDto;
+import capstone.interback.web.dto.UserAndRoomSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -24,6 +24,6 @@ public class SttLog {
     @Column(nullable = false)
     private String log_text;
 
-    @Column
-    private LocalDateTime log_time;
+//    @Column(nullable = false)
+//    private LocalDateTime log_time;
 }

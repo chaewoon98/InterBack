@@ -12,12 +12,12 @@ public class RoomApiController {
 
     private final RoomService roomService;
 
-    @PostMapping("/api/v1/posts")
+    @PostMapping("/api/v1/room")
     public Long save(@RequestBody RoomSaveRequestDto requestDto){
         return roomService.save(requestDto);
     }
 
-    @GetMapping("/api/v1/posts/{id}")
+    @GetMapping("/api/v1/room/{id}")
     public RoomResponseDto findById(@PathVariable Long id){
         return roomService.findById(id);
     }

@@ -15,7 +15,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)  //auto increment
     private Long id;
 
-    @Column(length = 15, nullable = false)
+    @Column(length = 15, nullable = false, name = "user_id")
     private String user_id;
 
     @Column(length = 25, nullable = false)
@@ -28,8 +28,7 @@ public class User {
     private String email;
 
     @Builder
-    public User(Long id, String user_id, String password, String name, String email) {
-        this.id = id;
+    public User(String user_id, String password, String name, String email) {
         this.user_id = user_id;
         this.password = password;
         this.name = name;
