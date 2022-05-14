@@ -1,5 +1,8 @@
 package capstone.interback.domain.feedback;
 
+import capstone.interback.domain.room.Room;
+import capstone.interback.domain.user.User;
+import capstone.interback.domain.user_and_room.UserAndRoom;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -14,11 +17,13 @@ public class Feedback {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private int room_id;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "room_id", nullable = false)
+    private Room room_id;
 
-    @Column(length = 15, nullable = false)
-    private String user_id;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user_id;
 
     @Column(nullable = false)
     private int positive;
