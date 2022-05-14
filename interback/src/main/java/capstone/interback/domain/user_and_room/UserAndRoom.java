@@ -13,20 +13,19 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
+@Table(name = "user_and_room")
 public class UserAndRoom {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)  //auto increment
     private Long id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "room_id")
-    @NotFound(action = NotFoundAction.IGNORE)
     private Room room;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
-    @NotFound(action = NotFoundAction.IGNORE)
     private User user;
 
     @Builder

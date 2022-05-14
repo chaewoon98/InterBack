@@ -9,13 +9,14 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
+@Table(name = "user")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)  //auto increment
     private Long id;
 
-    @Column(length = 15, nullable = false, name = "user_id")
+    @Column(length = 15, nullable = false)
     private String user_id;
 
     @Column(length = 25, nullable = false)

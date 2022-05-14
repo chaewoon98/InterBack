@@ -24,6 +24,6 @@ public class ChatLog {
     @Column(nullable = false)
     private String log_chat;
 
-//    @Column(nullable = false)
+//    @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 //    private LocalDateTime log_time;
 }

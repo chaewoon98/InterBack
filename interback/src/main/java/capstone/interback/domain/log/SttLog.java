@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 @Getter
@@ -21,9 +22,9 @@ public class SttLog {
     @Column(length = 15, nullable = false)
     private String user_id;
 
-    @Column(nullable = false)
+    @Column
     private String log_text;
 
-//    @Column(nullable = false)
-//    private LocalDateTime log_time;
+//    @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+//    private Timestamp log_time;
 }
