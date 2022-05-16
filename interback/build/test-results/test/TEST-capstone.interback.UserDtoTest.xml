@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="capstone.interback.UserDtoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-05-16T14:50:57" hostname="DESKTOP-D0C560V" time="0.021">
+  <properties/>
+  <testcase name="롬복_기능_테스트()" classname="capstone.interback.UserDtoTest" time="0.021"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
