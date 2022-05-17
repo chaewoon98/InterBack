@@ -18,7 +18,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-public class SttLogServiceRepositoryTest {
+public class SttLogRepositoryTest {
 
     @Autowired
     SttLogRepository sttLogRepository;

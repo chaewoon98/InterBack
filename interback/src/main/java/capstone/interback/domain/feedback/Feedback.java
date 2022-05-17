@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
+@Table(name = "feedback")
 public class Feedback {
 
     @Id

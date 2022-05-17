@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 @Service
-public class Feedback {
+public class FeedbackService {
 
     private final FeedbackRepository feedbackRepository;
 

@@ -13,7 +13,7 @@ public class RoomApiController {
     private final RoomService roomService;
 
     @PostMapping("/api/v1/room")
-    public Long save(@RequestBody RoomSaveRequestDto requestDto){
+    public Long createRoom(@RequestBody RoomSaveRequestDto requestDto){
         return roomService.save(requestDto);
     }
 
