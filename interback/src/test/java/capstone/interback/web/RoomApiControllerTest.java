@@ -43,11 +43,10 @@ public class RoomApiControllerTest {
         String content = "content";
         RoomSaveRequestDto requestDto = RoomSaveRequestDto.builder()
                 .title(title)
-                .content(content)
                 .master("master")
                 .build();
 
-        String url = "http://localhost:" + port + "/api/v1/room";
+        String url = "http://localhost:" + port + "/api/room";
 
         //when
         ResponseEntity<Long> responseEntity = restTemplate.postForEntity(url, requestDto, Long.class);
@@ -58,7 +57,6 @@ public class RoomApiControllerTest {
 
         List<Room> all = roomRepository.findAll();
         assertThat(all.get(0).getTitle()).isEqualTo(title);
-        assertThat(all.get(0).getContent()).isEqualTo(content);
 
     }
 }

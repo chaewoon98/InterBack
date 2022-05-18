@@ -20,15 +20,11 @@ public class Room {
     @Column(length = 500, nullable = false)
     private String title;
 
-    @Column(columnDefinition = "TEXT", nullable = false)
-    private String content;
-
     private String master;
 
     @Builder
-    public Room(String title, String content, String master){
+    public Room(String title, String master){
         this.title = title;
-        this.content = content;
         this.master = master;
     }
 }

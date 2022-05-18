@@ -5,8 +5,10 @@ import capstone.interback.domain.room.Room;
 import capstone.interback.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
+@NoArgsConstructor
 public class FeedbackSaveRequestDto {
 
     private Room room_id;
