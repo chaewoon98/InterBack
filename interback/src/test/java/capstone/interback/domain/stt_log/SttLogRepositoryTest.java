@@ -31,7 +31,7 @@ public class SttLogRepositoryTest {
     @Test
     public void 미팅룸저장_불러오기(){
         //given
-        Room room = new Room("title1", "content1", "master1");
+        Room room = new Room("title1", "master1");
         User user = new User("test_id", "pw", "name", "email");
         Date date = new Date(System.currentTimeMillis());
 

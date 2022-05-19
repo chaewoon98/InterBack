@@ -30,7 +30,6 @@ public class RoomRepositoryTest {
         String content = "테스트 미팅룸 콘텐트";
 
         roomRepository.save(Room.builder().title(title) //id값 있으면 update, 없으면 insert 쿼리 실행
-                .content(content)
                 .master("woonie")
                 .build());
         
@@ -40,7 +39,5 @@ public class RoomRepositoryTest {
         //then
         Room room = roomList.get(0);
         assertThat(room.getTitle()).isEqualTo(title);
-        assertThat(room.getContent()).isEqualTo(content);
-        
     }
 }
