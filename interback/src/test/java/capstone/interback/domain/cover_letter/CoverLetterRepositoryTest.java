@@ -1,6 +1,5 @@
 package capstone.interback.domain.cover_letter;
 
-import capstone.interback.domain.room.Room;
 import capstone.interback.domain.user.User;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
