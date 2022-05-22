@@ -10,11 +10,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CoverLetterSaveRequestDto {
 
+    private Long id;
     private User user_id;
     private String content;
 
     @Builder
-    public CoverLetterSaveRequestDto(User user_id, String content) {
+    public CoverLetterSaveRequestDto(Long id, User user_id, String content) {
+        this.id = id;
         this.user_id = user_id;
         this.content = content;
     }

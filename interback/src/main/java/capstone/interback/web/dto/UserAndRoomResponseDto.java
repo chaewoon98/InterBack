@@ -8,7 +8,7 @@ import lombok.Getter;
 @Getter
 public class UserAndRoomResponseDto {
 
-    Long id;
+    private Long id;
     private User user;
     private Room room;
 
