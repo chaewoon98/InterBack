@@ -4,6 +4,10 @@ plugins {
 	id 'java'
 }
 
+jar {
+	enabled = false
+}
+
 group = 'capstone'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
@@ -18,9 +22,6 @@ repositories {
 	mavenCentral()
 }
 
-jar {
-	enabled = false
-}
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
