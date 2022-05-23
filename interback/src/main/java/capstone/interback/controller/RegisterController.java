@@ -1,6 +1,5 @@
 package capstone.interback.controller;
 
-import capstone.interback.web.dto.UserDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,9 +17,9 @@ public class RegisterController {
         return "ok";
     }
 
-    @GetMapping("/register/dto")
-    public UserDTO userDTO(@RequestParam("name") String name,
-                           @RequestParam("id") String id) {
-        return new UserDTO(name, id);
-    }
+//    @GetMapping("/register/dto")
+//    public UserDTO userDTO(@RequestParam("name") String name,
+//                           @RequestParam("id") String id) {
+//        return new UserDTO(name, id);
+//    }
 }
