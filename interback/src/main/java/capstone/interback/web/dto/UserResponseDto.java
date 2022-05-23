@@ -1,7 +1,9 @@
 package capstone.interback.web.dto;
 
 import capstone.interback.domain.user.User;
+import lombok.Getter;
 
+@Getter
 public class UserResponseDto {
 
     private Long id;
