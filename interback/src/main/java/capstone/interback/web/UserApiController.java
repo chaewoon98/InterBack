@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController
+@CrossOrigin(origins = "http://3.39.74.53:8080", allowCredentials = "true")
 public class UserApiController {
 
     private final UserService userService;
 
+    @ResponseBody
     @PostMapping("/api/user")
     public Long register(@RequestBody UserSaveRequestDto requestDto){
         return userService.save(requestDto);
