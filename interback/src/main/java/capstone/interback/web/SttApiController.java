@@ -1,5 +1,8 @@
 package capstone.interback.web;
 
+import capstone.interback.service.sttLog.SttLogService;
+import capstone.interback.web.dto.RoomSaveRequestDto;
+import capstone.interback.web.dto.SttLogSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -17,6 +20,8 @@ import java.util.Map;
 @RequiredArgsConstructor
 @RestController
 public class SttApiController {
+
+    private final SttLogService sttLogService;
 
     @Autowired
     ResourceLoader resourceLoader;
@@ -102,6 +107,10 @@ public class SttApiController {
             e.printStackTrace();
             return e.toString();
         }
+    }
 
+    @PostMapping("/stt/save")
+    public Long save(@RequestBody SttLogSaveRequestDto requestDto){
+        return sttLogService.save(requestDto);
     }
 }

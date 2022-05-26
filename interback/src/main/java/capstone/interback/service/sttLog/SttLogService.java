@@ -13,7 +13,7 @@ public class SttLogService {
     private final SttLogRepository sttLogRepository;
 
     @Transactional
-    private long save(SttLogSaveRequestDto requestDto){
+    public long save(SttLogSaveRequestDto requestDto){
         return sttLogRepository.save(requestDto.toEntity()).getId();
     }
 }
